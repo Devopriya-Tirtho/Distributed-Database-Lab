@@ -1,0 +1,14 @@
+SET SERVEROUTPUT ON;
+DECLARE
+	n number;
+
+BEGIN
+	
+	SELECT COUNT(fName)
+	into n
+	FROM FACULTY
+	WHERE Fid in(select Fid from COURSE 
+	GROUP BY Fid HAVING COUNT(Fid)>=2);
+	DBMS_OUTPUT.PUT_LINE(n);
+END;
+/

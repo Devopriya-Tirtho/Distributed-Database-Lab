@@ -1,0 +1,21 @@
+SET SERVEROUTPUT ON;
+DECLARE
+	N number:=&x;
+	I number:=0;
+	J number:=1;
+
+BEGIN
+	FOR I in 2..N LOOP
+		FOR J IN 1..N LOOP
+			IF MOD(I,J)=0 THEN 
+				DBMS_OUTPUT.PUT_LINE('NOT PRIME');
+			ELSE
+				DBMS_OUTPUT.PUT_LINE('PRIME:');
+				DBMS_OUTPUT.PUT_LINE(I);
+				
+			END IF;
+		END LOOP;
+	END LOOP;
+END;
+/	
+		
